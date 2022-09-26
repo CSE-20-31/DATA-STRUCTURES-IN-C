@@ -73,8 +73,16 @@ void insert()
     {
         trav=trav->next;
     }
-       temp->next=trav->next;
-       trav->next=temp;
+      if(trav->data==tail->data)
+       {
+           tail->next=temp;
+           tail=temp;
+       }
+       else
+        temp->next=trav->next;
+        trav->next=temp;
+
+
 }
 
 void delete()
@@ -127,7 +135,7 @@ int main()
    int ch;
    while(1)
    {
-     printf("Enter 1 for create,  2 for view, 3 for insert, 4 for delete: ");
+     printf("Enter 1 for create,  2 for view, 3 for insert, 4 for delete, 5 for exit: ");
      scanf("%d", &ch);
 
      if(ch==1)
@@ -138,6 +146,8 @@ int main()
      insert();
      if(ch==4)
      delete();
+     if(ch==5)
+     break;
    }
 
 }
