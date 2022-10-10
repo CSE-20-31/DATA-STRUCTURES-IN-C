@@ -49,9 +49,50 @@ void view()
    {
      printf("%d", trav->data);
      trav=trav->next;
-
    }
+   printf("\n");
+
 }
+
+
+void even()
+{
+    struct node*trav;
+    trav=head;
+
+    while(trav!=NULL)
+   {
+     if(trav->data%2==0)
+     {
+        printf("%d ", trav->data);
+     }
+     trav=trav->next;
+   }
+   printf("\n");
+
+}
+
+void freq()
+{
+    int item,count=0;
+    printf("Enter the element whose freq is to be found: ");
+    scanf("%d", &item);
+
+    struct node*trav;
+    trav=head;
+
+    while(trav!=NULL)
+   {
+     if(trav->data==item)
+     {
+         count++;
+     }
+     trav=trav->next;
+     }
+   printf("The freq of %d in the linked list is %d", item,count);
+   printf("\n");
+}
+
 
 void insert()
 {
@@ -135,7 +176,7 @@ int main()
    int ch;
    while(1)
    {
-     printf("Enter 1 for create,  2 for view, 3 for insert, 4 for delete, 5 for exit: ");
+     printf("Enter 1 for create,  2 for view, 3 for insert, 4 for delete, 5 for even, 6 for freq, 7 for break: ");
      scanf("%d", &ch);
 
      if(ch==1)
@@ -147,7 +188,12 @@ int main()
      if(ch==4)
      delete();
      if(ch==5)
+     even();
+     if(ch==6)
+     freq();
+     if(ch==7)
      break;
+
    }
 
 }
